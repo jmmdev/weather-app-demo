@@ -11,9 +11,19 @@
     <!-- Bootstrap Font Icon CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-    <link rel="stylesheet" href="styles.css">  
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <header id="header-container">
+      <div class="m-4" id="header-message">
+        <h1 class="display-6 text-light">Weather App Demo</h1>
+      </div>
+      <div class="m-4" id="header-buttons">
+        <a href="mailto: josemaria.martin169@gmail.com" id="mail-button"><i class="bi bi-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/jos%C3%A9-mar%C3%ADa-mart%C3%ADn-mu%C3%B1oz-95a464195" target="_blank" id="linkedin-button"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/jmmdev" target="_blank" id="github-button"><i class="bi bi-github"></i></a>
+      </div>
+    </header>
       <!-- Contenedor principal -->
     <div class="mx-auto" id="weather-container">
       <!-- Contenedor botones de modos -->
@@ -32,7 +42,7 @@
         <div id="weather-container__temp"></div>
 
         <div id="weather-container__city">
-          <div id="city-val"></div>
+          <div class="text-center display-6 text-light" id="city-val"></div>
         </div>
       </div>
       <!-- Contenedor de búsqueda -->
@@ -48,16 +58,5 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-  
-    <footer>
-      <div id="footer-container">
-        <div id="footer-button">
-          <a href="mailto: josemaria.martin169@gmail.com" id="mail-button"><i class="bi bi-envelope"></i></a>
-          <a href="https://www.linkedin.com/in/jos%C3%A9-mar%C3%ADa-mart%C3%ADn-mu%C3%B1oz-95a464195" target="_blank" id="linkedin-button"><i class="bi bi-linkedin"></i></a>
-          <a href="https://github.com/jmmdev" target="_blank" id="github-button"><i class="bi bi-github"></i></a>
-        </div>
-      </div>
-    </footer>
-
   </body>
 </html>
