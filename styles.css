@@ -3,15 +3,16 @@
 }
 
 #header-message {
+  width: 45%;
   display: inline-block;
 }
 
 #header-buttons {
-  position: absolute;
-  right: 0;
   display: inline-block;
-  width: 200px;
+  text-align: right;
+  width: 45%;
 }
+
 #header-buttons a {
   font-size: 30px;
   color: white;
