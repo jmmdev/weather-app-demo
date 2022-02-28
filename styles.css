@@ -3,14 +3,12 @@
 }
 
 #header-message {
-  width: 45%;
   display: inline-block;
 }
 
 #header-buttons {
   display: inline-block;
-  text-align: right;
-  width: 45%;
+  float: right;
 }
 
 #header-buttons a {
