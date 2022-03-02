@@ -107,7 +107,7 @@ function gatherInfo(url){
             var country = data.sys.country;
             var description = data.weather[0].main;
 
-            document.getElementById("weather-container__temp").innerHTML = '<div class="display-1 text-center mt-4" id="temp-val">'+ temp + "° C" + '</div>'
+            document.getElementById("weather-container__temp").innerHTML = '<div class="text-center" id="temp-val">'+ temp + "° C" + '</div>'
             document.getElementById("city-val").innerHTML = city + ", " + country; 
 
             var imageDescription = {
