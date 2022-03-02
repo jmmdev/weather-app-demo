@@ -14,44 +14,44 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <header id="header-container">
       <div class="m-4" id="header-message">
-        <h1 class="display-6 text-light">Weather App Demo</h1>
+        <div class="text-light">Weather App Demo</div>
       </div>
+
+      <!-- Contenedor principal -->
+      <div class="mx-auto" id="weather-container">
+        <!-- Contenedor botones de modos -->
+        <div id="modes-container">
+          <div>
+            <button onclick="locationMode()" id="location-mode-button"><i class="bi bi-geo-alt-fill"></i></button>
+          </div>
+          <div>
+            <button onclick="searchMode()" id="search-mode-button"><i class="bi bi-search"></i></button>
+          </div>
+        </div>
+        <!-- Información del tiempo -->
+        <div id="weather-info">
+          <div id="weather-container__icon"></div>
+          
+          <div id="weather-container__temp"></div>
+
+          <div id="weather-container__city">
+            <div class="text-center display-6 text-light" id="city-val"></div>
+          </div>
+        </div>
+        <!-- Contenedor de búsqueda -->
+        <div id="search-container">
+          <input type="text" id="city-search" placeholder="Ciudad..." onkeyup="filterCities()">
+          <div id="search-list">
+          </div>
+        </div>
+      </div>
+
       <div class="m-4" id="header-buttons">
         <a href="mailto: josemaria.martin169@gmail.com" id="mail-button"><i class="bi bi-envelope"></i></a>
         <a href="https://www.linkedin.com/in/jos%C3%A9-mar%C3%ADa-mart%C3%ADn-mu%C3%B1oz-95a464195" target="_blank" id="linkedin-button"><i class="bi bi-linkedin"></i></a>
         <a href="https://github.com/jmmdev" target="_blank" id="github-button"><i class="bi bi-github"></i></a>
       </div>
-    </header>
-      <!-- Contenedor principal -->
-    <div class="mx-auto" id="weather-container">
-      <!-- Contenedor botones de modos -->
-      <div id="modes-container">
-        <div>
-          <button onclick="locationMode()" id="location-mode-button"><i class="bi bi-geo-alt-fill"></i></button>
-        </div>
-        <div>
-          <button onclick="searchMode()" id="search-mode-button"><i class="bi bi-search"></i></button>
-        </div>
-      </div>
-      <!-- Información del tiempo -->
-      <div id="weather-info">
-        <div id="weather-container__icon"></div>
-        
-        <div id="weather-container__temp"></div>
-
-        <div id="weather-container__city">
-          <div class="text-center display-6 text-light" id="city-val"></div>
-        </div>
-      </div>
-      <!-- Contenedor de búsqueda -->
-      <div id="search-container">
-        <input type="text" id="city-search" placeholder="Ciudad..." onkeyup="filterCities()">
-        <div id="search-list">
-        </div>
-      </div>
-    </div>
 
     <!-- Scripts -->
     <script src="app.js"></script>
