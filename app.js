@@ -108,6 +108,7 @@ function gatherInfo(url){
             var city = data.name;
             var country = data.sys.country;
             var description = data.weather[0].main;
+            
 
             document.getElementById("weather-container__temp").innerHTML = '<div class="text-center" id="temp-val">'+ temp + "° C" + '</div>'
             document.getElementById("city-val").innerHTML = city + ", " + country; 
@@ -174,6 +175,17 @@ function gatherInfo(url){
                 '<div id="dust">'+
                     '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#b9ac8b" class="bi bi-wind" viewBox="0 0 16 16"><path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z"/></svg>'+
                 '</div>',
+                Mist:
+                '<div id="mist-1">'+
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
+                '</div>'+
+                    '<div id="mist-2">'+
+                '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
+                '</div>'+
+                    '<div id="mist-3">'+
+                '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
+
+                '</div>'
             };
 
               if (imageDescription[description] !== undefined) {

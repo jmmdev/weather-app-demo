@@ -200,9 +200,9 @@ body {
 
 #rain-drop-1 {
   z-index: 0;
-  height: 35%;
+  height: 30%;
   position: absolute;
-  top: 79%;
+  top: 75%;
   left: 28%;
 
   -webkit-animation: rain-drop 1.6s linear infinite;
@@ -211,9 +211,9 @@ body {
 
 #rain-drop-2 {
   z-index: 0;
-  height: 35%;
+  height: 30%;
   position: absolute;
-  top: 79%;
+  top: 75%;
   left: 35%;
 
   -webkit-animation: rain-drop 1s linear infinite;
@@ -222,9 +222,9 @@ body {
 
 #rain-drop-3 {
   z-index: 0;
-  height: 35%;
+  height: 30%;
   position: absolute;
-  top: 79%;
+  top: 75%;
   left: 43%;
 
   -webkit-animation: rain-drop 1.3s linear infinite;
@@ -233,9 +233,9 @@ body {
 
 #rain-drop-4 {
   z-index: 0;
-  height: 35%;
+  height: 30%;
   position: absolute;
-  top: 79%;
+  top: 75%;
   left: 51%;
 
   -webkit-animation: rain-drop 1.5s linear infinite;
@@ -268,6 +268,33 @@ body {
   height: 100%;
   -webkit-animation: dust 4s linear infinite;
   animation: dust 4s linear infinite;
+}
+
+#mist-1{
+  width: 50%;
+  position: absolute;
+  top: -15%;
+  left: 20%;
+  -webkit-animation: mist-1 6s linear infinite;
+  animation: mist-1 6s linear infinite;
+}
+
+#mist-2{
+  width: 50%;
+  position: absolute;
+  top: 0%;
+  left: 15%;
+  -webkit-animation: mist-2 6.6s linear infinite;
+  animation: mist-2 6.6s linear infinite;
+}
+
+#mist-3{
+  width: 50%;
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  -webkit-animation: mist-3 7.2s linear infinite;
+  animation: mist-3 7.2s linear infinite;
 }
 
 #search-container {
@@ -422,6 +449,65 @@ body {
   }
 
   100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes mist-1 {
+  25%{
+    opacity: 50%;
+  }
+
+  50% {
+    left: 30%;
+    opacity: 100%;
+  }
+
+  75%{
+    opacity: 50%;
+  }
+
+  100%{
+    left: 20%
+  }
+}
+
+@keyframes mist-2 {
+  25%{
+    opacity: 50%;
+  }
+
+  50% {
+    left: 35%;
+    opacity: 100%;
+  }
+
+  75%{
+    opacity: 50%;
+  }
+
+  100%{
+    left: 15%;
+    opacity: 100%;
+  }
+}
+
+@keyframes mist-3 {
+  25%{
+    opacity: 50%;
+  }
+
+  50% {
+    left: 40%;
+    opacity: 100%;
+  }
+
+  75%{
+    opacity: 50%;
+  }
+
+  100%{
+    left: 10%;
     opacity: 100%;
   }
 }
