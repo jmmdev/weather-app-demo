@@ -5,11 +5,10 @@
 function searchByLocation(){
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(success, error);
-        document.getElementById("weather-container__temp").innerHTML = '<h2 style="color: white; text-align: center">Cargando información...</h2>';
     }
 
     function error(error){
-        $("#weather-container__placeholder").html('<h2 style="color: white; text-align: center; top: 25%; position: absolute">No se pudo obtener la información del tiempo</h2>');
+        $("#loading-message").html('<h2>No se pudo obtener la información del tiempo</h2>');
         $("#city-val").css("visibility", "hidden");
         window.alert("No se pudo obtener la información sobre el tiempo. Comprueba que tienes activada la localización en tu dispositivo \n\n" + "{Error: " + error.message + "}");
     }
@@ -32,8 +31,12 @@ function searchByLocation(){
 }
 
 function locationMode(){
+    
+    document.getElementById("search-container").style.display = "none";
+    document.getElementById("weather-info").style.display = "none";
+    document.getElementById("modes-container").style.display = "none";
+    document.getElementById("loading-message").style.display = "block";
     searchByLocation();
-    document.getElementById("weather-info").style.display = "block";
     document.getElementById("location-mode-button").style.opacity = "100%";
     document.getElementById("search-container").style.display = "none";
     document.getElementById("search-mode-button").style.opacity = "50%";
@@ -65,16 +68,15 @@ function searchMode(){
 function searchCity(city){
     var key = "220bf77b081743862a50f764cf8773c8"
 
-    document.getElementById("weather-container__icon").innerHTML = '';
-    document.getElementById("weather-container__temp").innerHTML = '<h2 style="color: white; text-align: center">Cargando información...</h2>';
-    document.getElementById("city-val").innerHTML = '';
+    
+    document.getElementById("search-container").style.display = "none";
+    document.getElementById("weather-info").style.display = "none";
+    document.getElementById("modes-container").style.display = "none";
+    document.getElementById("loading-message").style.display = "block";
 
     const url = "https://api.openweathermap.org/data/2.5/weather?q="+ city + "&units=metric&appid=" + key;
 
     gatherInfo(url);
-
-    document.getElementById("search-container").style.display = "none";
-    document.getElementById("weather-info").style.display = "block";
 }
 
 function filterCities(){
@@ -200,5 +202,10 @@ function gatherInfo(url){
             }
 
             $("#temp-val").css("color", color);
+            
+            document.getElementById("loading-message").style.display = "none";
+            document.getElementById("modes-container").style.display = "block";
+            document.getElementById("weather-info").style.display = "block";
+
         })
 }
