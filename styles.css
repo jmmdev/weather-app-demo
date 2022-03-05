@@ -244,9 +244,9 @@ body {
 
 #drizzle-drop-1 {
   z-index: 0;
-  height: 35%;
+  height: 30%;
   position: absolute;
-  top: 79%;
+  top: 75%;
   left: 35%;
 
   -webkit-animation: rain-drop 1.6s linear infinite;
@@ -255,9 +255,9 @@ body {
 
 #drizzle-drop-2 {
   z-index: 0;
-  height: 35%;
+  height: 30%;
   position: absolute;
-  top: 79%;
+  top: 75%;
   left: 43%;
 
   -webkit-animation: rain-drop 1s linear infinite;
