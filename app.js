@@ -30,53 +30,28 @@ function searchByLocation(){
     }
 }
 
-function locationMode(){
-    
-    document.getElementById("search-container").style.display = "none";
-    document.getElementById("weather-info").style.display = "none";
-    document.getElementById("modes-container").style.display = "none";
-    document.getElementById("loading-message").style.display = "block";
-    searchByLocation();
-    document.getElementById("location-mode-button").style.opacity = "100%";
-    document.getElementById("search-container").style.display = "none";
-    document.getElementById("search-mode-button").style.opacity = "50%";
-}
-
-function searchMode(){
-    document.getElementById("weather-info").style.display = "none";
-    document.getElementById("location-mode-button").style.opacity = "50%";
-
-    let cities = ["Ouagadougou", "Bilbao", "Sidney", "Corrientes", "Ontario", "Osaka", "Siria", "Coquimbo"];
-    cities.sort();
-
-    var output = '<ul id="cities-list">';
-
-    for(let c of cities){
-        output += '<li id="'+ c +'" onclick="searchCity(this.id)">'+ c +'</li>';
+function enterSearch(event){
+    if(event.keyCode === 13)
+    {
+        if(document.getElementById("search-field").value){
+            document.getElementById("search-button").click();
+        }
+    }else{
+        document.getElementById("search-field").style.color = document.getElementById("header-message").style.color;
     }
-
-    output+='</ul>';
-
-    console.log(output);
-
-    document.getElementById("search-list").innerHTML = output;
-
-    document.getElementById("search-container").style.display = "block";
-    document.getElementById("search-mode-button").style.opacity = "100%";
 }
 
-function searchCity(city){
-    var key = "220bf77b081743862a50f764cf8773c8"
+var lastCity = "";
 
-    
-    document.getElementById("search-container").style.display = "none";
-    document.getElementById("weather-info").style.display = "none";
-    document.getElementById("modes-container").style.display = "none";
-    document.getElementById("loading-message").style.display = "block";
+function searchCity(){
+    var city = document.getElementById("search-field").value;
 
-    const url = "https://api.openweathermap.org/data/2.5/weather?q="+ city + "&units=metric&appid=" + key;
+    if(city.toLowerCase() != lastCity.toLowerCase()){
+        var key = "220bf77b081743862a50f764cf8773c8"
 
-    gatherInfo(url);
+        const url = "https://api.openweathermap.org/data/2.5/weather?q="+ city + "&units=metric&appid=" + key;
+        gatherInfo(url);
+    }
 }
 
 function filterCities(){
@@ -103,15 +78,22 @@ function gatherInfo(url){
             return response.json();
         })
         .then(function(data) {
-
             var temp = Math.round(data.main.temp);
             var city = data.name;
             var country = data.sys.country;
             var description = data.weather[0].main;
-            
 
-            document.getElementById("weather-container__temp").innerHTML = '<div class="text-center" id="temp-val">'+ temp + "° C" + '</div>'
+            document.getElementById("weather-container__temp").innerHTML = '<h1 class="text-center display-1" id="temp-val">'+ temp + "° C" + '</h1>'
             document.getElementById("city-val").innerHTML = city + ", " + country; 
+
+            var weatherThemes = {
+                Clouds: "dark",
+                Clear: "dark",
+                Thunderstorm: "light",
+                Snow: "dark",
+                Rain: "light",
+                Drizzle: "light"
+            }
 
             var imageDescription = {
                 Clouds: 
@@ -131,9 +113,6 @@ function gatherInfo(url){
                 '</div>'+
                 '<div id="storm-cloud-icon-2">'+
                     '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#444444" class="bi bi-cloud-fill" viewBox="0 0 16 16"><path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/></svg>' +
-                '</div>'+
-                '<div id="lightning-icon">'+
-                    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#fffc2e" class="bi bi-lightning-fill" viewBox="0 0 16 16"><path d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5z"/></svg>'+
                 '</div>',
                 Snow: 
                 '<div id="snow-main">'+
@@ -148,32 +127,32 @@ function gatherInfo(url){
                 Rain: 
                 '<div id="rain-cloud">'+
                     '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#666666" class="bi bi-cloud-fill" viewBox="0 0 16 16"><path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/></svg>'+
-                '</div>'+   
-                '<div id="rain-drop-1">'+
-                    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-slash" viewBox="0 0 16 16"><path d="M11.354 4.646a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>'+
-                '</div>'+ 
-                '<div id="rain-drop-2">'+
-                    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-slash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/></svg>'+
                 '</div>'+
-                '<div id="rain-drop-3">'+
-                    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-slash" viewBox="0 0 16 16"><path d="M11.354 4.646a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>'+
-                '</div>'+
-                '<div id="rain-drop-4">'+
-                    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-slash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/></svg>'+
+                '<div class="rain-drops">'+
+                    '<div id="rain-drop-1">'+
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-slash" viewBox="0 0 16 16"><path d="M11.354 4.646a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>'+
+                    '</div>'+ 
+                    '<div id="rain-drop-2">'+
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-slash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/></svg>'+
+                    '</div>'+
+                    '<div id="rain-drop-3">'+
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-slash" viewBox="0 0 16 16"><path d="M11.354 4.646a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>'+
+                    '</div>'+
+                    '<div id="rain-drop-4">'+
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-slash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/></svg>'+
+                    '</div>'+
                 '</div>',
                 Drizzle:
                 '<div id="rain-cloud">'+
                     '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#666666" class="bi bi-cloud-fill" viewBox="0 0 16 16"><path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/></svg>'+
                 '</div>'+   
-                '<div id="drizzle-drop-1">'+
-                    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-slash" viewBox="0 0 16 16"><path d="M11.354 4.646a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>'+
-                '</div>'+ 
-                '<div id="drizzle-drop-2">'+
-                    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-slash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/></svg>'+
-                '</div>',
-                Dust:
-                '<div id="dust">'+
-                    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#b9ac8b" class="bi bi-wind" viewBox="0 0 16 16"><path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z"/></svg>'+
+                '<div class="rain-drops">'+
+                    '<div id="drizzle-drop-1">'+
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-slash" viewBox="0 0 16 16"><path d="M11.354 4.646a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>'+
+                    '</div>'+ 
+                    '<div id="drizzle-drop-2">'+
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-slash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/></svg>'+
+                    '</div>'+
                 '</div>',
                 Mist:
                 '<div id="mist-1">'+
@@ -185,11 +164,39 @@ function gatherInfo(url){
                     '<div id="mist-3">'+
                 '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
 
+                '</div>',
+                Dust:
+                '<div id="mist-1">'+
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
+                '</div>'+
+                    '<div id="mist-2">'+
+                '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
+                '</div>'+
+                    '<div id="mist-3">'+
+                '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
+
+                '</div>',
+                Smoke:
+                '<div id="mist-1">'+
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
+                '</div>'+
+                    '<div id="mist-2">'+
+                '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
+                '</div>'+
+                    '<div id="mist-3">'+
+                '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="white" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
                 '</div>'
             };
 
               if (imageDescription[description] !== undefined) {
                 document.getElementById("weather-container__icon").innerHTML = imageDescription[description];
+
+                var theme = weatherThemes[description];
+
+                document.getElementById("search-container").className = "search-container " + theme;
+                document.getElementById("header-message").className = "header-message " + theme;
+                document.getElementById("header-buttons").className = "header-buttons " + theme;
+
               } else {
                 $("#weather-container__icon").html('<div class="mx-auto" id="weather-icon-pic"><img class="text-center" src="http://openweathermap.org/img/wn/' + data.weather[0].icon + '@4x.png" alt="Image of weather"></div>')
               }
@@ -216,8 +223,14 @@ function gatherInfo(url){
             $("#temp-val").css("color", color);
             
             document.getElementById("loading-message").style.display = "none";
-            document.getElementById("modes-container").style.display = "block";
             document.getElementById("weather-info").style.display = "block";
+            document.getElementById("weather-container").style.display = "block";
 
+            document.body.className = description.toLowerCase() + "-bg";
+
+            lastCity = document.getElementById("search-field").value;
+        })
+        .catch(function(exception){ 
+            document.getElementById("search-field").style.color = "#ff0000";
         })
 }
