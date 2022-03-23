@@ -166,8 +166,11 @@ body {
   font-size: 1.2em;
   border: none;
   background: none;
-  font-style: oblique;
   outline: none;
+}
+
+.search-field::placeholder {
+  font-style: oblique;
 }
 
 .search-button {
