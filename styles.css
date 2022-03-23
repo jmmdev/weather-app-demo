@@ -209,7 +209,7 @@ body {
   position: relative;
 }
 
-#temp-val {
+.temp-val {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
@@ -221,7 +221,7 @@ body {
   text-align: center;
 }
 
-#sun-icon {
+.sun-icon {
   width: 60%;
   margin: 0 auto;
 
@@ -229,7 +229,7 @@ body {
   animation: sun-spin 40s linear infinite;
 }
 
-#moon-icon {
+.moon-icon {
   width: 50%;
   position: relative;
   left: 50%;
@@ -240,7 +240,7 @@ body {
   animation: moon-glow 6s linear infinite;
 }
 
-#cloud-icon-1 {
+.cloud-icon-1 {
   width: 60%;
   position: relative;
   left: 10%;
@@ -250,7 +250,7 @@ body {
   animation: cloud-move-1 5s linear infinite;
 }
 
-#cloud-icon-2 {
+.cloud-icon-2 {
   width: 40%;
   position: absolute;
   left: 25%;
@@ -261,7 +261,7 @@ body {
   animation: cloud-move-2 5s linear infinite;
 }
 
-#storm-cloud-icon-1 {
+.storm-cloud-icon-1 {
   width: 60%;
   position: relative;
   top: 0;
@@ -272,7 +272,7 @@ body {
   animation: cloud-lightning 3s linear infinite;
 }
 
-#storm-cloud-icon-2 {
+.storm-cloud-icon-2 {
   width: 60%;
   position: absolute;
   top: 0;
@@ -283,7 +283,7 @@ body {
   animation: cloud-lightning 3s linear infinite;
 }
 
-#snow-main {
+.snow-main {
   width: 60%;
   position: relative;
   top: 10%;
@@ -293,7 +293,7 @@ body {
   animation: snow-rotate 15s linear infinite;
 }
 
-#snow-small-1 {
+.snow-small-1 {
   width: 10%;
   position: absolute;
   top: 0;
@@ -303,7 +303,7 @@ body {
   animation: snow-fall 5s linear infinite;
 }
 
-#snow-small-2 {
+.snow-small-2 {
   width: 10%;
   position: absolute;
   top: 0;
@@ -313,7 +313,7 @@ body {
   animation: snow-fall 7s linear infinite;
 }
 
-#rain-cloud {
+.rain-cloud {
   width: 60%;
   margin: 0 auto;
   z-index: 20;
@@ -328,7 +328,7 @@ body {
   margin: 0 auto;
 }
 
-#rain-drop-1 {
+.rain-drop-1 {
   width: 15%;
   position: relative;
   left: 25%;
@@ -337,7 +337,7 @@ body {
   animation: rain-drop 1.6s linear infinite;
 }
 
-#rain-drop-2 {
+.rain-drop-2 {
   width: 15%;
   position: relative;
   left: 20%;
@@ -346,7 +346,7 @@ body {
   animation: rain-drop 1s linear infinite;
 }
 
-#rain-drop-3 {
+.rain-drop-3 {
   width: 15%;
   position: relative;
   left: 17%;
@@ -355,7 +355,7 @@ body {
   animation: rain-drop 1.3s linear infinite;
 }
 
-#rain-drop-4 {
+.rain-drop-4 {
   width: 15%;
   position: relative;
   left: 12%;
@@ -364,7 +364,7 @@ body {
   animation: rain-drop 1.5s linear infinite;
 }
 
-#drizzle-drop-1 {
+.drizzle-drop-1 {
   width: 15%;
   position: relative;
   left: 37%;
@@ -373,7 +373,7 @@ body {
   animation: rain-drop 1.6s linear infinite;
 }
 
-#drizzle-drop-2 {
+.drizzle-drop-2 {
   width: 15%;
   position: relative;
   left: 29%;
@@ -382,13 +382,7 @@ body {
   animation: rain-drop 1s linear infinite;
 }
 
-#dust {
-  height: 100%;
-  -webkit-animation: dust 4s linear infinite;
-  animation: dust 4s linear infinite;
-}
-
-#mist-1 {
+.mist-1 {
   width: 60%;
   position: relative;
   left: 20%;
@@ -396,7 +390,7 @@ body {
   animation: mist-1 6s linear infinite;
 }
 
-#mist-2 {
+.mist-2 {
   width: 60%;
   position: absolute;
   top: 15%;
@@ -405,7 +399,7 @@ body {
   animation: mist-2 6.6s linear infinite;
 }
 
-#mist-3 {
+.mist-3 {
   width: 60%;
   position: absolute;
   top: 30%;
@@ -643,7 +637,7 @@ body {
     margin: 0 14px;
   }
 
-  #temp-val {
+  .temp-val {
     font-size: 4.5em;
   }
 
@@ -673,7 +667,7 @@ body {
     width: 50%;
   }
 
-  #temp-val {
+  .temp-val {
     font-size: 6em;
   }
 
@@ -715,7 +709,7 @@ body {
     font-size: 2em;
   }
 
-  #temp-val {
+  .temp-val {
     font-size: 8.5em;
   }
 
