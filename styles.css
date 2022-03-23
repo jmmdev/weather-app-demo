@@ -200,7 +200,7 @@ body {
   margin-top: 250px;
 }
 
-#weather-info {
+.weather-info {
   width: 100%;
   display: flex;
   visibility: none;
@@ -215,7 +215,7 @@ body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-#weather-container__city {
+.weather-container__city {
   width: 100%;
 }
 
@@ -643,7 +643,7 @@ body {
     font-size: 4.5em;
   }
 
-  #city-val {
+  .city-val {
     font-size: 1.3em;
   }
 
@@ -673,7 +673,7 @@ body {
     font-size: 6em;
   }
 
-  #city-val {
+  .city-val {
     font-size: 1.7em;
   }
 
@@ -732,7 +732,7 @@ body {
     font-size: 8.5em;
   }
 
-  #city-val {
+  .city-val {
     font-size: 2em;
   }
 }
