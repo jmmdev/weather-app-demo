@@ -174,18 +174,14 @@ body {
   display: none;
 }
 
-.weather-frame {
-  border: 10px solid #0000007f;
-  border-radius: 34px;
-  margin: 0 12px;
-}
-
 .weather-container {
   max-width: 420px;
   padding: 24px;
+  margin: 0 20px;
   display: flex;
   background-color: #252525;
   border: 10px solid #00000066;
+  box-shadow: 0 0 0 10px #0000007f;
   border-radius: 24px;
   display: none;
 }
@@ -635,13 +631,10 @@ body {
     width: 50%;
   }
 
-  .weather-frame {
-    border: 8px solid #0000007f;
-    border-radius: 33px;
-  }
-
   .weather-container {
     border-width: 7px;
+    box-shadow: 0 0 0 7px #0000007f;
+    margin: 0 14px;
   }
 
   #temp-val {
