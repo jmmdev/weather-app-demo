@@ -230,8 +230,11 @@ body {
 }
 
 #moon-icon {
-  width: 60%;
-  margin: 0 auto;
+  width: 50%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 5% 0;
 
   -webkit-animation: moon-glow 6s linear infinite;
   animation: moon-glow 6s linear infinite;
