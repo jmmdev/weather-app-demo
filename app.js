@@ -82,7 +82,16 @@ function gatherInfo(url){
             var city = data.name;
             var country = data.sys.country;
             var description = data.weather[0].main;
-            var time = (new Date().getUTCHours() + (data.timezone / 3600)) % 24;
+
+            var date = new Date().getUTCHours();
+
+            if(date === 0){
+                date = 24;
+            }
+
+            var time = (date + (data.timezone / 3600)) % 24;
+
+            console.log(time);
 
             document.getElementById("weather-container__temp").innerHTML = '<h1 class="text-center display-1" id="temp-val">'+ temp + "° C" + '</h1>'
             document.getElementById("city-val").innerHTML = city + ", " + country; 
