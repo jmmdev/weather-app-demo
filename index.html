@@ -27,12 +27,12 @@
       </div>
     </header>
 
-    <!-- Mensaje de carga -->
-    <div id="loading-message" class="loading-message">
-      Cargando información...
-    </div>
       <!-- Contenedor principal -->
       <div class="mx-auto main-container">
+        <!-- Mensaje de carga -->
+        <div id="loading-message" class="loading-message">
+          Cargando información...
+        </div>
         <div id="search-container" class="search-container dark">
           <div class="tooltip-container">
             <i class="bi bi-question-circle"></i>
@@ -46,19 +46,21 @@
           <input type="search" id="search-field" class="search-field" placeholder="Ingresa una ciudad..." onkeydown="enterSearch(event)">
           <button type="button" id="search-button" class="search-button" onclick="searchCity()"></button>
         </div>
-        <div id="weather-container" class="weather-container">
-          <!-- Información del tiempo -->
-          <div id="weather-info">
-            <div id="weather-container__icon" class="weather-container__icon"></div>
-            
-            <div id="weather-container__temp"></div>
+        <div class="weather-frame">
+          <div id="weather-container" class="weather-container">
+            <!-- Información del tiempo -->
+            <div id="weather-info">
+              <div id="weather-container__icon" class="weather-container__icon"></div>
+              
+              <div id="weather-container__temp"></div>
 
-            <div id="weather-container__city">
-              <div class="text-center display-6 text-light" id="city-val" class="city-val"></div>
+              <div id="weather-container__city">
+                <div class="text-center display-6 text-light" id="city-val" class="city-val"></div>
+              </div>
             </div>
           </div>
-      </div>
         </div>
+      </div>
     <!-- Scripts -->
     <script src="app.js"></script>
 
