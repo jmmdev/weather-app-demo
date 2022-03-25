@@ -127,6 +127,15 @@ body {
   animation: background-lightning 3s linear infinite;
 }
 
+.mist-bg{
+  background: rgb(128, 134, 172);
+  background: linear-gradient(
+    180deg,
+    rgb(233, 230, 238) 0%,
+    rgb(128, 134, 172) 100%
+  );
+}
+
 .main-container {
   width: fit-content;
 }
@@ -729,16 +738,10 @@ body {
   }
 
   .temp-val {
-    font-size: 8.5em;
+    font-size: 7em;
   }
 
   .city-val {
     font-size: 2em;
-  }
-}
-
-@media (min-width: 1100px) {
-  .header-container {
-    margin: 24px 24px 120px 24px;
   }
 }

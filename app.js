@@ -66,6 +66,8 @@ function gatherInfo(url){
             var country = data.sys.country;
             var description = data.weather[0].main;
 
+            console.log(description);
+
             var date = new Date().getUTCHours();
 
             if(date === 0){
@@ -84,7 +86,8 @@ function gatherInfo(url){
                 Thunderstorm: "light",
                 Snow: "dark",
                 Rain: "light",
-                Drizzle: "light"
+                Drizzle: "light",
+                Mist: "dark"
             }
 
             var imageDescription = {
