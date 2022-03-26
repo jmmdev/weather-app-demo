@@ -397,6 +397,7 @@ body {
   width: 60%;
   position: relative;
   left: 20%;
+  top: -20%;
   -webkit-animation: mist-1 6s linear infinite;
   animation: mist-1 6s linear infinite;
 }
