@@ -1,11 +1,11 @@
 .header-container {
-  margin: 24px 24px 48px 24px;
+  margin: 12px 24px 48px 24px;
   display: flex;
+  align-items: center;
 }
 
 .header-message {
-  width: 50%;
-  margin-bottom: 12px;
+  width: 90%;
 }
 
 .light {
@@ -61,12 +61,12 @@
 }
 
 .header-buttons {
-  width: 50%;
+  width: 10%;
   text-align: right;
 }
 
 .header-buttons a {
-  margin-left: 12px;
+  font-size: 1.5em;
 }
 
 body {
@@ -83,11 +83,11 @@ body {
 }
 
 .clear-bg {
-  background: rgb(233, 178, 0);
+  background: rgb(77, 205, 255);
   background: radial-gradient(
     circle,
-    rgb(255, 250, 205) 0%,
-    rgb(233, 178, 0) 100%
+    rgb(197, 237, 255) 0%,
+    rgb(77, 205, 255) 100%
   );
 }
 
@@ -397,7 +397,7 @@ body {
   width: 60%;
   position: relative;
   left: 20%;
-  top: -20%;
+  top: 0%;
   -webkit-animation: mist-1 6s linear infinite;
   animation: mist-1 6s linear infinite;
 }
@@ -705,21 +705,6 @@ body {
 @media (min-width: 391px) {
   .search-field {
     width: 80%;
-  }
-}
-
-@media (max-width: 467px) {
-  .header-container {
-    display: block;
-    text-align: right;
-  }
-
-  .header-message {
-    width: 100%;
-  }
-
-  .header-buttons {
-    width: 100%;
   }
 }
 
