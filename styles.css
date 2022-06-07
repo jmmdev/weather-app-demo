@@ -287,7 +287,7 @@ body {
 }
 
 .rain-cloud {
-  width: 60%;
+  width: 100%;
   margin: 0 auto;
   z-index: 20;
   position: relative;
@@ -296,13 +296,49 @@ body {
 .rain-drops {
   display: flex;
   position: absolute;
-  bottom: 0;
+  bottom: -10%;
   z-index: 19;
   margin: 0 auto;
 }
 
 .rain-drop-1 {
-  width: 15%;
+  width: 30%;
+  position: relative;
+  left: 10%;
+
+  -webkit-animation: rain-drop 1.6s linear infinite;
+  animation: rain-drop 1.6s linear infinite;
+}
+
+.rain-drop-2 {
+  width: 30%;
+  position: relative;
+  left: 3%;
+
+  -webkit-animation: rain-drop 1s linear infinite;
+  animation: rain-drop 1s linear infinite;
+}
+
+.rain-drop-3 {
+  width: 30%;
+  position: relative;
+  left: -3%;
+
+  -webkit-animation: rain-drop 1.3s linear infinite;
+  animation: rain-drop 1.3s linear infinite;
+}
+
+.rain-drop-4 {
+  width: 30%;
+  position: relative;
+  left: -10%;
+
+  -webkit-animation: rain-drop 1.5s linear infinite;
+  animation: rain-drop 1.5s linear infinite;
+}
+
+.drizzle-drop-1 {
+  width: 30%;
   position: relative;
   left: 25%;
 
@@ -310,46 +346,10 @@ body {
   animation: rain-drop 1.6s linear infinite;
 }
 
-.rain-drop-2 {
-  width: 15%;
-  position: relative;
-  left: 20%;
-
-  -webkit-animation: rain-drop 1s linear infinite;
-  animation: rain-drop 1s linear infinite;
-}
-
-.rain-drop-3 {
-  width: 15%;
-  position: relative;
-  left: 17%;
-
-  -webkit-animation: rain-drop 1.3s linear infinite;
-  animation: rain-drop 1.3s linear infinite;
-}
-
-.rain-drop-4 {
-  width: 15%;
-  position: relative;
-  left: 12%;
-
-  -webkit-animation: rain-drop 1.5s linear infinite;
-  animation: rain-drop 1.5s linear infinite;
-}
-
-.drizzle-drop-1 {
-  width: 15%;
-  position: relative;
-  left: 35%;
-
-  -webkit-animation: rain-drop 1.6s linear infinite;
-  animation: rain-drop 1.6s linear infinite;
-}
-
 .drizzle-drop-2 {
-  width: 15%;
+  width: 30%;
   position: relative;
-  left: 29%;
+  left: 10%;
 
   -webkit-animation: rain-drop 1s linear infinite;
   animation: rain-drop 1s linear infinite;
