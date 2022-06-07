@@ -9,7 +9,7 @@ function searchByLocation(){
 
     function error(error){
         $("#loading-message").html('<h2>No se pudo obtener la información del tiempo</h2>');
-        $("#city-val").css("visibility", "hidden");
+        $("#weather-container__city").css("visibility", "hidden");
         window.alert("No se pudo obtener la información sobre el tiempo. Comprueba que tienes activada la localización en tu dispositivo \n\n" + "{Error: " + error.message + "}");
     }
 
@@ -19,7 +19,7 @@ function searchByLocation(){
         
         document.getElementById("weather-container__icon").innerHTML = '';
         document.getElementById("weather-container__temp").innerHTML = '';
-        document.getElementById("city-val").innerHTML = '';
+        document.getElementById("weather-container__city").innerHTML = '';
 
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
@@ -38,7 +38,7 @@ function enterSearch(event){
             document.getElementById("search-button").click();
         }
     }else{
-        document.getElementById("search-field").style.color = document.getElementById("header-message").style.color;
+        document.getElementById("search-field").style.color = '#ffffff';
     }
 }
 
@@ -66,7 +66,8 @@ function gatherInfo(url){
             var country = data.sys.country;
             var description = data.weather[0].main;
 
-            console.log(description);
+            if(description === "Dust" || description === "Smoke")
+                description = "Mist";
 
             var date = new Date().getUTCHours();
 
@@ -76,19 +77,8 @@ function gatherInfo(url){
 
             var time = (date + (data.timezone / 3600)) % 24;
 
-            document.getElementById("weather-container__temp").innerHTML = '<h1 class="text-center display-1 temp-val" id="temp-val">'+ temp + "° C" + '</h1>'
-            document.getElementById("city-val").innerHTML = city + ", " + country; 
-
-            var weatherThemes = {
-                Clouds: "dark",
-                Clear: "dark",
-                ClearNight: "light",
-                Thunderstorm: "light",
-                Snow: "dark",
-                Rain: "light",
-                Drizzle: "light",
-                Mist: "dark"
-            }
+            document.getElementById("weather-container__temp").innerHTML = temp + "° C";
+            document.getElementById("weather-container__city").innerHTML = city + ", " + country;
 
             var imageDescription = {
                 Clouds: 
@@ -165,25 +155,27 @@ function gatherInfo(url){
 
                 '</div>',
                 Dust:
-                '<div id="mist-1">'+
-                    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#664400" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
+                '<div class="mist-1">'+
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#ffffff" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
                 '</div>'+
-                '<div id="mist-2">'+
-                    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#664400" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
+                    '<div class="mist-2">'+
+                '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#ffffff" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
                 '</div>'+
-                '<div id="mist-3">'+
-                    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#664400" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
+                    '<div class="mist-3">'+
+                '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#ffffff" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
+
                 '</div>',
                 Smoke:
-                '<div id="mist-1">'+
-                    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#000000" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
+                '<div class="mist-1">'+
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#ffffff" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
                 '</div>'+
-                    '<div id="mist-2">'+
-                '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#000000" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
+                    '<div class="mist-2">'+
+                '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#ffffff" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
                 '</div>'+
-                    '<div id="mist-3">'+
-                '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#000000" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
-                '</div>'
+                    '<div class="mist-3">'+
+                '<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="#ffffff" class="bi bi-dash-lg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/></svg>'+
+
+                '</div>',
             };
 
               if (imageDescription[description] !== undefined) {
@@ -194,42 +186,60 @@ function gatherInfo(url){
                 }
                 document.getElementById("weather-container__icon").innerHTML = imageDescription[description];
 
-                var theme = weatherThemes[description];
-
-                document.getElementById("search-container").className = "search-container " + theme;
-                document.getElementById("header-message").className = "header-message " + theme;
-                document.getElementById("header-buttons").className = "header-buttons " + theme;
-
               } 
               else {
                 $("#weather-container__icon").html('<div class="mx-auto" id="weather-icon-pic"><img class="text-center" src="http://openweathermap.org/img/wn/' + data.weather[0].icon + '@4x.png" alt="Image of weather"></div>')
               }
 
+            var lowTherm = 
+            '<svg xmlns="http://www.w3.org/2000/svg" width="100%" fill="var(--therm-color)" class="bi bi-thermometer-low" viewBox="0 0 16 16">'+
+                '<path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V9.5a.5.5 0 0 1 1 0v1.585a1.5 1.5 0 0 1 1 1.415z"/>' +
+                '<path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/>' +
+            '</svg>'
+
+            var halfTherm = 
+            '<svg xmlns="http://www.w3.org/2000/svg" width="100%" fill="var(--therm-color)" class="bi bi-thermometer-half" viewBox="0 0 16 16">'+
+                '<path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V6.5a.5.5 0 0 1 1 0v4.585a1.5 1.5 0 0 1 1 1.415z"/>' +
+                '<path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/>' +
+            '</svg>'
+
+            var highTherm = 
+            '<svg xmlns="http://www.w3.org/2000/svg" width="100%" fill="var(--therm-color)" class="bi bi-thermometer-high" viewBox="0 0 16 16">'+
+                '<path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V2.5a.5.5 0 0 1 1 0v8.585a1.5 1.5 0 0 1 1 1.415z"/>' +
+                '<path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/>' +
+            '</svg>'
 
             var color = "";
+            var thermometerElem = document.getElementById("thermometer");
 
             if(temp >= 29){
-                color = "#c00000";
-            }else if(temp >= 26){
                 color = "#ff0000";
+                thermometerElem.innerHTML = highTherm;
+            }else if(temp >= 26){
+                color = "#ff6000";
+                thermometerElem.innerHTML = highTherm;
             }else if(temp >= 23){
                 color = "#ffc000";
+                thermometerElem.innerHTML = halfTherm;
             }else if(temp >= 20){
-                color = "#ffff00";
+                color = "#ffe800";
+                thermometerElem.innerHTML = halfTherm;
             }else if(temp >= 17){
                 color = "#92d050";
+                thermometerElem.innerHTML = halfTherm;
             }else if(temp >= 14){
-                color = "#00b04e";
+                color = "#00802e";
+                thermometerElem.innerHTML = lowTherm;
             }else{
-                color = "#00b0f0";
+                color = "#0033aa";
+                thermometerElem.innerHTML = lowTherm;
             }
 
-            $("#temp-val").css("color", color);
+            document.documentElement.style.setProperty('--therm-color', color);
             
             document.getElementById("loading-message").style.display = "none";
             document.getElementById("search-container").style.display = "flex";
-            document.getElementById("weather-info").style.display = "block";
-            document.getElementById("weather-container").style.display = "block";
+            document.getElementById("weather-container").style.display = "flex";
 
             document.body.className = description.toLowerCase() + "-bg";
 

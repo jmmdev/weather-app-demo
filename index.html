@@ -14,24 +14,14 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body class="default-bg">
-    <header>
-      <div class="header-container">
-        <div id="header-message" class="header-message light">
-          Weather App Demo
-        </div>
-        <div id="header-buttons" class="header-buttons light">
-          <a href="https://github.com/jmmdev/weather-app-demo" target="_blank" id="github-button"><i class="bi bi-github"></i></a>
-        </div>
-      </div>
-    </header>
 
       <!-- Contenedor principal -->
-      <div class="mx-auto main-container">
+      <div class="main-container">
         <!-- Mensaje de carga -->
         <div id="loading-message" class="loading-message">
           Cargando información...
         </div>
-        <div id="search-container" class="search-container dark">
+        <div id="search-container" class="search-container">
           <div class="tooltip-container">
             <i class="bi bi-question-circle"></i>
             <div class="tooltiptext">
@@ -41,21 +31,20 @@
               Ej: "cordoba,es"
             </div>
           </div>
-          <input type="search" id="search-field" class="search-field" placeholder="Ingresa una ciudad..." onkeydown="enterSearch(event)">
+          <input type="search" id="search-field" class="search-field" placeholder="Ciudad..." onkeydown="enterSearch(event)">
           <button type="button" id="search-button" class="search-button" onclick="searchCity()"></button>
         </div>
-          <div id="weather-container" class="weather-container">
-            <!-- Información del tiempo -->
-            <div id="weather-info" class="weather-info">
-              <div id="weather-container__icon" class="weather-container__icon"></div>
-              
-              <div id="weather-container__temp"></div>
-
-              <div class="weather-container__city">
-                <div class="text-center display-6 text-light" id="city-val" class="city-val"></div>
-              </div>
+        <div id="weather-container" class="weather-container">
+          <div id="weather-container__icon" class="weather-container__icon"></div>
+          
+          <div id="weather-text" class="weather-text">
+            <div class="temp-info">
+              <div id="weather-container__temp" class="weather-container__temp"></div>
+              <div id="thermometer" class="weather-container__therm"></div>
             </div>
+            <div id="weather-container__city" class="weather-container__city"></div>
           </div>
+        </div>
       </div>
     <!-- Scripts -->
     <script src="app.js"></script>
