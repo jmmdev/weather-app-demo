@@ -185,19 +185,25 @@ body {
 .temp-info {
   display: flex;
   align-items: center;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .weather-container__temp {
   line-height: 1em;
 }
 
-.weather-container__city {
-  line-height: 1em;
-}
-
 .weather-container__therm {
   height: 100%;
   display: flex;
+  align-items: center;
+}
+
+.weather-container__therm  i {
+  color: var(--therm-color);
+}
+
+.weather-container__city {
+  line-height: 0.7em;
 }
 
 .sun-icon {
@@ -556,7 +562,7 @@ body {
   }
 
   .weather-container__therm {
-    width: 2.5em;
+    font-size: 2.2em;
   }
 
   .weather-container__city {
@@ -574,7 +580,7 @@ body {
   }
 
   .weather-container__therm {
-    width: 3.3em;
+    font-size: 3em;
   }
 
   .weather-container__city {
@@ -592,7 +598,7 @@ body {
   }
 
   .weather-container__therm {
-    width: 4em;
+    font-size: 3.7em;
   }
 
   .weather-container__city {

@@ -191,23 +191,11 @@ function gatherInfo(url){
                 $("#weather-container__icon").html('<div class="mx-auto" id="weather-icon-pic"><img class="text-center" src="http://openweathermap.org/img/wn/' + data.weather[0].icon + '@4x.png" alt="Image of weather"></div>')
               }
 
-            var lowTherm = 
-            '<svg xmlns="http://www.w3.org/2000/svg" width="100%" fill="var(--therm-color)" class="bi bi-thermometer-low" viewBox="0 0 16 16">'+
-                '<path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V9.5a.5.5 0 0 1 1 0v1.585a1.5 1.5 0 0 1 1 1.415z"/>' +
-                '<path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/>' +
-            '</svg>'
+            var lowTherm = '<i class="bi bi-thermometer-low"></i>';
 
-            var halfTherm = 
-            '<svg xmlns="http://www.w3.org/2000/svg" width="100%" fill="var(--therm-color)" class="bi bi-thermometer-half" viewBox="0 0 16 16">'+
-                '<path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V6.5a.5.5 0 0 1 1 0v4.585a1.5 1.5 0 0 1 1 1.415z"/>' +
-                '<path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/>' +
-            '</svg>'
+            var halfTherm = '<i class="bi bi-thermometer-half"></i>';
 
-            var highTherm = 
-            '<svg xmlns="http://www.w3.org/2000/svg" width="100%" fill="var(--therm-color)" class="bi bi-thermometer-high" viewBox="0 0 16 16">'+
-                '<path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V2.5a.5.5 0 0 1 1 0v8.585a1.5 1.5 0 0 1 1 1.415z"/>' +
-                '<path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/>' +
-            '</svg>'
+            var highTherm = '<i class="bi bi-thermometer-high"></i>';
 
             var color = "";
             var thermometerElem = document.getElementById("thermometer");
