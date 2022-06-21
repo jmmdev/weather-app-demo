@@ -196,15 +196,8 @@ body {
 }
 
 .weather-container__therm {
-  position: relative;
   height: 100%;
-}
-
-.weather-container__therm > svg {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
 }
 
 .sun-icon {
